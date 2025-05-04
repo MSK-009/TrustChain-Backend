@@ -13,7 +13,7 @@ const provider = new ethers.JsonRpcProvider("https://sepolia.infura.io/v3/1d9afa
 const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
 async function main() {
-    const logs = await contract.totalLogs();
+    const logs = await contract.getAllLogs();
     console.log("Logs:", logs);
 }
 
