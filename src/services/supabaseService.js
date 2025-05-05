@@ -220,4 +220,20 @@ const getOrders = async() =>{
   
   return data;
 }
-module.exports = { logToSupabase, updateItemLocation, logToOrderItems, signup, login, getOrder, getItemsForOrder, getOrders };
+
+const getAllStageEvents = async() =>{
+  const { data, error } = await supabase
+  .from('stage_events')
+  .select("*")
+
+  if (error){
+    throw new Error('Error fetching stage events')
+  }
+
+  if (!data){
+    throw new Error('No stage events Found')
+  }
+  
+  return data;
+}
+module.exports = { logToSupabase, updateItemLocation, logToOrderItems, signup, login, getOrder, getItemsForOrder, getOrders, getAllStageEvents };
